@@ -1,0 +1,25 @@
+
+body {
+    background: url("images/Ali.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.main {
+    width: 680px;
+    height: 500px;
+}
+
+.develop a {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 55px;
+    text-align: center;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background-color: #10c9c3;
+    text-decoration: none;
+    display: block;
+    width: 180px;
+}

@@ -1,0 +1,19 @@
+body{
+    background: url("images/back.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.welcome{
+    font-family: cursive;
+}
+
+.err {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
