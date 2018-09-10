@@ -19,27 +19,36 @@
         <h5>(Cookies must be enabled in your browser)</h5>
     </div>
 
-    <form action="#" class="logform mt-3" method="post">
+    <form action="/login" class="logform mt-3" method="post" >
         <div class="err">
-
+        <#if Session?? && Session.SPRING_SECURITY_LAST_EXCEPTION??>
+        <div class="alert alert-danger col-sm-2 " role="alert">
+            ${Session.SPRING_SECURITY_LAST_EXCEPTION.message}
+        </div>
+        </#if>
+            <#if message??>
+        <div class="alert alert-${messageType} " role="alert">
+            ${message}
+        </div>
+    </#if>
         </div>
 
         <div class="container text-center">
             <div class="row">
                 <div class="col col-sm-4">
-                    <input type="text" class="form-control" id="username" name="username"
+                    <input type="text" class="form-control" id="username" name="username" data-validate = "Enter username"
                            placeholder="Login">
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col col-sm-4">
-                    <input type="password" class="form-control" id="password" name="password"
+                    <input type="password" class="form-control" id="password" name="password" data-validate = "Enter password"
                            placeholder="Password">
                 </div>
             </div>
             <div class="row mt-2 text-center">
                 <div class="col">
-                   <#-- <input type="hidden" name="_csrf" value="${_csrf.token}" />-->
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
                     <button type="submit" class="btn btn-primary">Sing In</button>
                 </div>
             </div>
@@ -48,7 +57,7 @@
 
     <div class="text-center mt-5">
         <h4 style="color: rebeccapurple">
-            If you are not register, please <a href="/reg">Register new user!</a>
+            Not registered? <a href="/registration">Create an account</a>
         </h4>
     </div>
 

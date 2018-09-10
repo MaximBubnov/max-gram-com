@@ -15,7 +15,7 @@
 <div class="container mt-5 main">
 
     <div class="mt-3 text-center">
-        <img src="/static/greeting/images/inst.png" alt="" width="150" height="130">
+        <img src="/static/greeting/images/inst.jpg" alt="" width="150" height="130">
     </div>
 
     <div id="demo" class="carousel slide mt-3" data-ride="carousel">

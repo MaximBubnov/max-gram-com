@@ -13,13 +13,19 @@
 </div>
 
 <div class="mt-5">
-    <form action="#" method="post">
+    <form action="/registration" method="post" enctype="multipart/form-data">
         <h4 class="ml-5">Name *</h4>
         <div class="form-group row">
             <div class="col-sm-2 ml-5">
                 <input type="text" name="firstname"
-                       class="form-control"
+                       class="form-control ${(firstnameError??)?string('is-invalid', '')}"
                        placeholder="First name"/>
+                 <#if firstnameError??>
+                    <div class="invalid-feedback">
+                    ${firstnameError}
+                     </div>
+                 </#if>
+
             </div>
             <div class="col-sm-2 ml-2">
                 <input type="text" name="lastname"
@@ -32,8 +38,13 @@
         <div class="form-group row">
             <div class="col-sm-4 ml-5">
                 <input type="text" name="username"
-                       class="form-control"
+                       class="form-control ${(usernameError??)?string('is-invalid', '')}"
                        placeholder="Username"/>
+                 <#if usernameError??>
+                <div class="invalid-feedback">
+                    ${usernameError}
+                </div>
+                 </#if>
             </div>
         </div>
 
@@ -41,8 +52,13 @@
         <div class="form-group row">
             <div class="col-sm-4 ml-5">
                 <input type="text" name="password"
-                       class="form-control"
+                       class="form-control ${(passwordError??)?string('is-invalid', '')}"
                        placeholder="Password"/>
+                 <#if passwordError??>
+                <div class="invalid-feedback">
+                    ${passwordError}
+                </div>
+                 </#if>
             </div>
         </div>
 
@@ -50,8 +66,13 @@
         <div class="form-group row">
             <div class="col-sm-4 ml-5">
                 <input type="text" name="password2"
-                       class="form-control"
+                       class="form-control ${(password2Error??)?string('is-invalid', '')}"
                        placeholder="Repeat password"/>
+                <#if password2Error??>
+                    <div class="invalid-feedback">
+                        ${password2Error}
+                    </div>
+                </#if>
             </div>
         </div>
 
@@ -59,12 +80,28 @@
         <div class="form-group row">
             <div class="col-sm-4 ml-5">
                 <input type="text" name="email"
-                       class="form-control"
+                       class="form-control ${(emailError??)?string('is-invalid', '')}"
                        placeholder="Email"/>
+                <#if emailError??>
+                <div class="invalid-feedback">
+                    ${emailError}
+                </div>
+                </#if>
             </div>
         </div>
 
-       <#-- <input type="hidden" name="_csrf" value="${_csrf.token}" />-->
+        <h4 class="ml-5">Photo (png/jpg) </h4>
+        <div class="form-group row">
+            <div class="custom-file col-sm-4 ml-5">
+                <input type="file" name="file"
+                       class="form-control"
+                       placeholder="Image"/>
+            </div>
+        </div>
+
+
+
+       <input type="hidden" name="_csrf" value="${_csrf.token}" />
 
         <button type="submit" class="btn btn-primary ml-5 btn-lg">Submit</button>
 
